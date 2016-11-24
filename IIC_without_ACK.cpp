@@ -16,6 +16,7 @@
  #include "WProgram.h"
 #endif
 
+#include <avr/pgmspace.h>
 #include "IIC_without_ACK.h"
 #include "oledfont.c"
 
@@ -45,7 +46,7 @@ void IIC_without_ACK::IIC_Start()
 
 
 /*
-Initiate the Stop Condition.
+Stop Condition
 
 Writing is completed when the stop condition is received. It consists of pulling SDA from LOW to HIGH
 while SCL stays HIGH.
@@ -83,7 +84,7 @@ void IIC_without_ACK::Write_IIC_Command(unsigned char IIC_Command)
 {
    IIC_Start();
    Write_IIC_Byte(0x78);		// Slave address,SA0=0   A.K.A. 0x3C
-   Write_IIC_Byte(0x00);		// Write command   [Co bit|D/C#|0|0|0|0|0|0]   Co=0 Databytes to follow   D/C#=0 This is the Command Byte
+   Write_IIC_Byte(0x00);		// Write command   [Co bit|D/C#|0|0|0|0|0|0]   Co=0 Databytes to follow   D/C#=0 This is the Command bit
    Write_IIC_Byte(IIC_Command);	// The command
    IIC_Stop();
 }
@@ -148,7 +149,7 @@ void IIC_without_ACK::Char_F6x8(unsigned char x, unsigned char y, const char ch[
     Begin_IIC_Data();//SetPos函数有IIC_Stop的操作
     for(i=0;i<6;i++)
     {
-      Write_IIC_Byte(font6x8[c*6+i]);
+      Write_IIC_Byte(pgm_read_byte(&font6x8[c*6+i]));
     }
     IIC_Stop();
     x += 6;
@@ -157,8 +158,7 @@ void IIC_without_ACK::Char_F6x8(unsigned char x, unsigned char y, const char ch[
 }
 
 
-//显示8x16 ASCII字符 -- 使用此函数时，将此处以及IIC_without_ACK.h中相应的注释部分移除。
-/*
+// Draw text. Takes in the column, row, and text to display.
 void IIC_without_ACK::Char_F8x16(unsigned char x, unsigned char y,const char ch[])
 {
 	unsigned char c=0,i=0,j=0;
@@ -174,20 +174,20 @@ void IIC_without_ACK::Char_F8x16(unsigned char x, unsigned char y,const char ch[
 		Begin_IIC_Data();
 		for(i=0;i<8;i++)
 		{
-      Write_IIC_Byte(font8X16[c*16+i]);
+      Write_IIC_Byte(pgm_read_byte(&font8X16[c*16+i]));
     }
     IIC_Stop();
 		IIC_SetPos(x,y+1);
 		Begin_IIC_Data();
 		for(i=0;i<8;i++)
 		{
-      Write_IIC_Byte(font8X16[c*16+i+8]);
+      Write_IIC_Byte(pgm_read_byte(&font8X16[c*16+i+8]));
     }
     IIC_Stop();
 		x+=8;
 		j++;
 	}
-}*/
+}
 
 
 //显示16x16的中文 -- 使用此函数时，将此处以及IIC_without_ACK.h中相应的注释部分移除。
