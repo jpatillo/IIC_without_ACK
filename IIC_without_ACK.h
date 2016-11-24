@@ -37,7 +37,7 @@ class IIC_without_ACK
   void IIC_SetPos(unsigned char x, unsigned char y);
   void Fill_Screen(unsigned char fill_Data);
   void Char_F6x8(unsigned char x, unsigned char y, const char ch[]);
-  void Char_F8x16(unsigned char x, unsigned char y,const char ch[]);
+//  void Char_F8x16(unsigned char x, unsigned char y,const char ch[]);
 //  void CN_F16x16(unsigned char x, unsigned char y, unsigned char N);
   void Draw_BMP(unsigned char x0, unsigned char y0, unsigned char x1, unsigned char y1,const char BMP[]);
   void Initial();
