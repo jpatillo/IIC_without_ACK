@@ -17,6 +17,3 @@ datasheet and made some changes.
 This fork of the library is not meant to be as feature rich as Adafruit's or
 the U8glib. The goal is simply to output text to the display while using as
 little memory as possible.
-
-Shout out to CosminLazar for adding SRAM support! That was a good idea. His
-fork is here: [https://github.com/CosminLazar/IIC_without_ACK-SSD1306](https://github.com/CosminLazar/IIC_without_ACK-SSD1306)
