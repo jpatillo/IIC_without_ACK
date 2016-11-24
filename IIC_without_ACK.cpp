@@ -16,7 +16,6 @@
  #include "WProgram.h"
 #endif
 
-#include <avr/pgmspace.h>
 #include "IIC_without_ACK.h"
 #include "oledfont.c"
 
@@ -149,7 +148,7 @@ void IIC_without_ACK::Char_F6x8(unsigned char x, unsigned char y, const char ch[
     Begin_IIC_Data();//SetPos函数有IIC_Stop的操作
     for(i=0;i<6;i++)
     {
-      Write_IIC_Byte(pgm_read_byte(&font6x8[c*6+i]));
+	  Write_IIC_Byte(font6x8[c * 6 + i]);
     }
     IIC_Stop();
     x += 6;
