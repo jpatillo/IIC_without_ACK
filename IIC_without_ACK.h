@@ -27,7 +27,7 @@
 class IIC_without_ACK
 {
   public:
-  // When the object is created, specify SDA and SCL pins.
+  // When the object is created, specify SDA and SCL pins. Don't forget to add 4.7K-10K pullup resistors to both.
   IIC_without_ACK(int sda, int scl);
   // 0xFF fills every pixel, 0x00 clears the screen
   void Fill_Screen(unsigned char fill_Data);
