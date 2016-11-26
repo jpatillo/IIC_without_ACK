@@ -9,3 +9,8 @@ This library does not receive input from the LCD. The ACK signal that would norm
 This fork of the library is not meant to be as feature rich as Adafruit's or the U8glib. The goal is simply to output text to the display while using as little memory as possible.
 
 ##How to Use It
+See the example sketch. The library is exceedingly easy to use.
+
+##References
+Chris Anderson has a nice introduction article. [http://www.kalazzerx.com/blue-oled-lcd-led-display-module-for-arduino/](http://www.kalazzerx.com/blue-oled-lcd-led-display-module-for-arduino/)
+  
