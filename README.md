@@ -1,4 +1,4 @@
-# IIC_without_ACK
+#Readme IIC_without_ACK
 Fork of the library that allows an Arduino to output text to a display using the SSD1306 chip.
 
 ##Why this Repo Exists
@@ -12,5 +12,5 @@ This fork of the library is not meant to be as feature rich as Adafruit's or the
 See the example sketch. The library is exceedingly easy to use.
 
 ##References
-Chris Anderson has a nice introduction article. [http://www.kalazzerx.com/blue-oled-lcd-led-display-module-for-arduino/](http://www.kalazzerx.com/blue-oled-lcd-led-display-module-for-arduino/)
+Chris Anderson has a nice introduction to the hardware. [http://www.kalazzerx.com/blue-oled-lcd-led-display-module-for-arduino/](http://www.kalazzerx.com/blue-oled-lcd-led-display-module-for-arduino/)
   
