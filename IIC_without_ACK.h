@@ -35,6 +35,7 @@ class IIC_without_ACK
   void Write_IIC_Command(unsigned char IIC_Command);
   void Begin_IIC_Data();
   void IIC_SetPos(unsigned char x, unsigned char y);
+  void Fill_Line(unsigned int row, unsigned char fill_Data)
   void Fill_Screen(unsigned char fill_Data);
   void Char_F6x8(unsigned char x, unsigned char y, const char ch[]);
   void Char_F8x16(unsigned char x, unsigned char y,const char ch[]);

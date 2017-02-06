@@ -113,6 +113,23 @@ void IIC_without_ACK::IIC_SetPos(unsigned char x, unsigned char y)
   IIC_Stop();//SetPos函数经常被使用,所以采用了这种发送一组命令再关闭IIC总线的方式
 }
 
+// Fill a line(0x00)
+void IIC_without_ACK::Fill_Line(unsigned int row, unsigned char fill_Data)
+{
+  if(row>7)return;
+  unsigned char n;
+  Write_IIC_Command(0xb0+row);	//row
+  Write_IIC_Command(0x00);		//low column start address
+  Write_IIC_Command(0x10);		//high column start address
+  Begin_IIC_Data();
+  for(n=0;n<128;n++)
+  {
+    Write_IIC_Byte(fill_Data);
+  }
+  IIC_Stop();
+  
+}
+
 
 //全屏显示 -- Fill_Screen(0x00)可用作清屏
 void IIC_without_ACK::Fill_Screen(unsigned char fill_Data)
