@@ -30,7 +30,7 @@ class IIC_without_ACK
   // When the object is created, specify SDA and SCL pins. Don't forget to add 4.7K-10K pullup resistors to both.
   IIC_without_ACK(int sda, int scl);
   // Fills a single line
-  void Fill_Line(unsigned int row, unsigned char fill_Data)
+  void Fill_Line(unsigned int row, unsigned char fill_Data);
   // 0xFF fills every pixel, 0x00 clears the screen
   void Fill_Screen(unsigned char fill_Data);
   // Prints a char string to the display at the location specified. Each y value is a line on the LCD.
