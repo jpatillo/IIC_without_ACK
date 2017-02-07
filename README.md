@@ -11,6 +11,10 @@ This fork of the library is not meant to be as feature rich as Adafruit's or the
 ## How to Use It
 See the example sketch. The library is exceedingly easy to use.
 
+## Note
+
+The Fill_Screen and Fill_Line methods take time, so if your loop frequently clears and redraws the screen, you will experience blinking. Computers use buffers to handle this, but an Arduino project will likely not have memory to spare. Your project will have to find efficient ways of drawing to the screen.
+
 ## References
 Chris Anderson has a nice introduction to the hardware. [http://www.kalazzerx.com/blue-oled-lcd-led-display-module-for-arduino/](http://www.kalazzerx.com/blue-oled-lcd-led-display-module-for-arduino/)
   
