@@ -1,6 +1,8 @@
 # IIC_without_ACK
 Fork of the library that allows an Arduino to output text to a display using the SSD1306 chip.
 
+Robust graphics libraries are huge. In an effort to save storage, libraries like Adafruit's GFX and U8glib may not be the best solution.  This library is minimalistic, but this projects that are mostly concerned with text and not fancy drawing will benefit greatly.
+
 ## Why this Repo Exists
 The link in the files' heading which should point to the author's page does not seem to work, so I have made some changes to the library and posted them as a complete Arduino library.
 
