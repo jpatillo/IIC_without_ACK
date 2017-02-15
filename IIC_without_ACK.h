@@ -1,13 +1,13 @@
 /***************************************************************************
-* 因为此版本的IIC通信没有ACK信号返回，所以现成的关于IIC通信的库不能用于本品。
+* 锟斤拷为锟剿版本锟斤拷IIC通锟斤拷没锟斤拷ACK锟脚号凤拷锟截ｏ拷锟斤拷锟斤拷锟街成的癸拷锟斤拷IIC通锟脚的库不锟斤拷锟斤拷锟节憋拷品锟斤拷
 *
-* 第一次使用Arduino，也不太熟悉C++，所以这个库在使用起来可能不如Adafruit或
-* U8glib的库那样方便……理解万岁。比如设置字体大小、显示任意尺寸BMP图片等功能，
-* 后续会完善功能的！！！！
+* 锟斤拷一锟斤拷使锟斤拷Arduino锟斤拷也锟斤拷太锟斤拷悉C++锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷使锟斤拷锟斤拷锟斤拷锟斤拷锟杰诧拷锟斤拷Adafruit锟斤拷
+* U8glib锟侥匡拷锟斤拷锟斤拷锟斤拷锟姐…锟斤拷锟斤拷锟斤拷锟斤拷锟疥。锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷小锟斤拷锟斤拷示锟斤拷锟斤拷锟竭达拷BMP图片锟饺癸拷锟杰ｏ拷
+* 锟斤拷锟斤拷锟斤拷锟斤拷锟狡癸拷锟杰的ｏ拷锟斤拷锟斤拷锟斤拷
 *
-* 最新版本的“IIC_wtihout_ACK”会发布在 http://www.14blog.com/archives/1358
-* 
-* 建议和问题反馈，请发邮件至 hello14blog@gmail.com
+* 锟斤拷锟铰版本锟侥★拷IIC_wtihout_ACK锟斤拷锟结发锟斤拷锟斤拷 http://www.14blog.com/archives/1358
+*
+* 锟斤拷锟斤拷锟斤拷锟斤拷锟解反锟斤拷锟斤拷锟诫发锟绞硷拷锟斤拷 hello14blog@gmail.com
 ***************************************************************************/
 
 #ifndef _IIC_without_ACK_H
@@ -41,6 +41,10 @@ class IIC_without_ACK
   void Initial();
   //void Char_F8x16(unsigned char x, unsigned char y,const char ch[]);
   //void CN_F16x16(unsigned char x, unsigned char y, unsigned char N);
+  // Turn the display off.
+  void Display_Off();
+  // Turn the display on.
+  void Display_On();
 
   protected:
   void IIC_Start();
@@ -48,10 +52,10 @@ class IIC_without_ACK
   void Write_IIC_Byte(unsigned char IIC_Byte);
   void Write_IIC_Command(unsigned char IIC_Command);
   void Begin_IIC_Data();
-  // Set the cursor position. This method is not needed by the user because the drawing methods call 
+  // Set the cursor position. This method is not needed by the user because the drawing methods call
   // it. It is only used internally at this time.
   void IIC_SetPos(unsigned char x, unsigned char y);
-  
+
   private:
   int _sda, _scl;
 };

@@ -1,13 +1,13 @@
 /***************************************************************************
-* 因为此版本的IIC通信没有ACK信号返回，所以现成的关于IIC通信的库不能用于本品。
+* 锟斤拷为锟剿版本锟斤拷IIC通锟斤拷没锟斤拷ACK锟脚号凤拷锟截ｏ拷锟斤拷锟斤拷锟街成的癸拷锟斤拷IIC通锟脚的库不锟斤拷锟斤拷锟节憋拷品锟斤拷
 *
-* 第一次使用Arduino，也不太熟悉C++，所以这个库在使用起来可能不如Adafruit或
-* U8glib的库那样方便……理解万岁。比如设置字体大小、显示任意尺寸BMP图片等功能，
-* 后续会完善功能的！！！！
+* 锟斤拷一锟斤拷使锟斤拷Arduino锟斤拷也锟斤拷太锟斤拷悉C++锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷使锟斤拷锟斤拷锟斤拷锟斤拷锟杰诧拷锟斤拷Adafruit锟斤拷
+* U8glib锟侥匡拷锟斤拷锟斤拷锟斤拷锟姐…锟斤拷锟斤拷锟斤拷锟斤拷锟疥。锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷小锟斤拷锟斤拷示锟斤拷锟斤拷锟竭达拷BMP图片锟饺癸拷锟杰ｏ拷
+* 锟斤拷锟斤拷锟斤拷锟斤拷锟狡癸拷锟杰的ｏ拷锟斤拷锟斤拷锟斤拷
 *
-* 最新版本的“IIC_wtihout_ACK”会发布在 http://www.14blog.com/archives/1358
-* 
-* 建议和问题反馈，请发邮件至 hello14blog@gmail.com
+* 锟斤拷锟铰版本锟侥★拷IIC_wtihout_ACK锟斤拷锟结发锟斤拷锟斤拷 http://www.14blog.com/archives/1358
+*
+* 锟斤拷锟斤拷锟斤拷锟斤拷锟解反锟斤拷锟斤拷锟诫发锟绞硷拷锟斤拷 hello14blog@gmail.com
 ***************************************************************************/
 
 #if ARDUINO >= 100
@@ -59,7 +59,7 @@ void IIC_without_ACK::IIC_Stop()
 }
 
 
-//通过IIC写一个8位的数据,比如0xff
+//通锟斤拷IIC写一锟斤拷8位锟斤拷锟斤拷锟斤拷,锟斤拷锟斤拷0xff
 void IIC_without_ACK::Write_IIC_Byte(unsigned char IIC_Byte)
 {
   unsigned char i;
@@ -89,7 +89,7 @@ void IIC_without_ACK::Write_IIC_Command(unsigned char IIC_Command)
 }
 
 
-//开始IIC写数据 -- 这样可以让一组数据发送完成后再关闭IIC，能很大程度提速
+//锟斤拷始IIC写锟斤拷锟斤拷 -- 锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷一锟斤拷锟斤拷锟捷凤拷锟斤拷锟斤拷锟缴猴拷锟劫关憋拷IIC锟斤拷锟杰很达拷锟教讹拷锟斤拷锟斤拷
 void IIC_without_ACK::Begin_IIC_Data()
 {
    IIC_Start();
@@ -98,18 +98,18 @@ void IIC_without_ACK::Begin_IIC_Data()
 }
 
 
-//设置起始点坐标
+//锟斤拷锟斤拷锟斤拷始锟斤拷锟斤拷锟斤拷
 void IIC_without_ACK::IIC_SetPos(unsigned char x, unsigned char y)
 {
   IIC_Start();
   Write_IIC_Byte(0x78);  //Slave address,SA0=0
   Write_IIC_Byte(0x00);	//write command
-  
+
   Write_IIC_Byte(0xb0+y);
   Write_IIC_Byte(((x&0xf0)>>4)|0x10);//|0x10
   Write_IIC_Byte((x&0x0f)|0x01);//|0x01
-  
-  IIC_Stop();//SetPos函数经常被使用,所以采用了这种发送一组命令再关闭IIC总线的方式
+
+  IIC_Stop();//SetPos锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷使锟斤拷,锟斤拷锟皆诧拷锟斤拷锟斤拷锟斤拷锟街凤拷锟斤拷一锟斤拷锟斤拷锟斤拷锟劫关憋拷IIC锟斤拷锟竭的凤拷式
 }
 
 // Fill a line(0x00)
@@ -126,11 +126,11 @@ void IIC_without_ACK::Fill_Line(unsigned int row, unsigned char fill_Data)
     Write_IIC_Byte(fill_Data);
   }
   IIC_Stop();
-  
+
 }
 
 
-//全屏显示 -- Fill_Screen(0x00)可用作清屏
+//全锟斤拷锟斤拷示 -- Fill_Screen(0x00)锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷
 void IIC_without_ACK::Fill_Screen(unsigned char fill_Data)
 {
   unsigned char m,n;
@@ -162,7 +162,7 @@ void IIC_without_ACK::Char_F6x8(unsigned char x, unsigned char y, const char ch[
       y++;
     }
     IIC_SetPos(x,y);
-    Begin_IIC_Data();//SetPos函数有IIC_Stop的操作
+    Begin_IIC_Data();//SetPos锟斤拷锟斤拷锟斤拷IIC_Stop锟侥诧拷锟斤拷
     for(i=0;i<6;i++)
     {
 	  Write_IIC_Byte(font6x8[c * 6 + i]);
@@ -206,7 +206,7 @@ void IIC_without_ACK::Char_F8x16(unsigned char x, unsigned char y,const char ch[
 }
 */
 
-//显示16x16的中文 -- 使用此函数时，将此处以及IIC_without_ACK.h中相应的注释部分移除。
+//锟斤拷示16x16锟斤拷锟斤拷锟斤拷 -- 使锟矫此猴拷锟斤拷时锟斤拷锟斤拷锟剿达拷锟皆硷拷IIC_without_ACK.h锟斤拷锟斤拷应锟斤拷注锟酵诧拷锟斤拷锟狡筹拷锟斤拷
 /*
 void IIC_without_ACK::CN_F16x16(unsigned char x, unsigned char y, unsigned char N)
 {
@@ -232,12 +232,12 @@ void IIC_without_ACK::CN_F16x16(unsigned char x, unsigned char y, unsigned char 
 */
 
 
-//显示128x64的BMP图片 -- 使用此函数时，将此处以及IIC_without_ACK.h中相应的注释部分移除。
+//锟斤拷示128x64锟斤拷BMP图片 -- 使锟矫此猴拷锟斤拷时锟斤拷锟斤拷锟剿达拷锟皆硷拷IIC_without_ACK.h锟斤拷锟斤拷应锟斤拷注锟酵诧拷锟斤拷锟狡筹拷锟斤拷
 void IIC_without_ACK::Draw_BMP(unsigned char x0, unsigned char y0, unsigned char x1, unsigned char y1,const char BMP[])
 {
   unsigned int j=0;
   unsigned char x,y;
-  
+
   if(y1%8==0)
     y=y1/8;
   else
@@ -254,8 +254,14 @@ void IIC_without_ACK::Draw_BMP(unsigned char x0, unsigned char y0, unsigned char
   }
 }
 
+void IIC_without_ACK::Display_On(){
+  Write_IIC_Command(0xAF);	// Turn on oled panel
+}
 
-//
+void IIC_without_ACK::Display_Off(){
+  Write_IIC_Command(0xAE);	// Display off
+}
+
 void IIC_without_ACK::Initial()
 {
 	// Some commands require a followup value.
@@ -286,7 +292,7 @@ void IIC_without_ACK::Initial()
 	Write_IIC_Command(0x14);	//		Enabled
 	Write_IIC_Command(0xA4);	// Entire Display On (Reset)
 	Write_IIC_Command(0xA6);	//		Set Display Normal (Not Inverse)
-	Write_IIC_Command(0xAF);	// Turn on oled panel 
-	
-	
+	Write_IIC_Command(0xAF);	// Turn on oled panel
+
+
 }
