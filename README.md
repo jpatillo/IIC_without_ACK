@@ -14,6 +14,7 @@ This fork of the library is not meant to be as feature rich as Adafruit's or the
 Clone this repo into your Arduino libraries folder. For help using the library, see the example sketch. The library is exceedingly easy to use.
 
 ## Note
+This library stores the font in program memory. As a result, RAM is not affected much, but each byte written to the display requires a read from the flash memory which is slow.
 
 The Fill_Screen and Fill_Line methods take time, so if your loop frequently clears and redraws the screen, you will experience blinking. Computers use buffers to handle this, but an Arduino project will likely not have memory to spare. Your project will have to find efficient ways of drawing to the screen.
 
