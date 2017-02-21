@@ -165,7 +165,7 @@ void IIC_without_ACK::Char_F6x8(unsigned char x, unsigned char y, const char ch[
     Begin_IIC_Data();//SetPos������IIC_Stop�Ĳ���
     for(i=0;i<6;i++)
     {
-	  Write_IIC_Byte(font6x8[c * 6 + i]);
+    Write_IIC_Byte(pgm_read_byte_near(font6x8+(c * 6 + i)));
     }
     IIC_Stop();
     x += 6;
@@ -248,7 +248,7 @@ void IIC_without_ACK::Draw_BMP(unsigned char x0, unsigned char y0, unsigned char
     Begin_IIC_Data();
     for(x=x0;x<x1;x++)
     {
-      Write_IIC_Byte(BMP[j++]);
+      Write_IIC_Byte(pgm_read_byte_near(BMP+j++));
     }
     IIC_Stop();
   }
