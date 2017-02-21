@@ -7,7 +7,6 @@
 *****************************************************************/
 
 #include <avr/pgmspace.h>
-//#define PROGMEM
 
 /* Standard ASCII 6x8 font */
 const unsigned char PROGMEM font6x8[] = {
