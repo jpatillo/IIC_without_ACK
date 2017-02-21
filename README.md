@@ -20,3 +20,12 @@ The Fill_Screen and Fill_Line methods take time, so if your loop frequently clea
 
 ## References
 Chris Anderson has a nice introduction to the hardware. [http://www.kalazzerx.com/blue-oled-lcd-led-display-module-for-arduino/](http://www.kalazzerx.com/blue-oled-lcd-led-display-module-for-arduino/)
+
+## Version
+
+###1.4
+* The font is now properly saved to flash memory so RAM is not unnecessarily wasted.
+
+###1.3
+* Added methods to turn the display on and off. They do not clear the display's memory, so turning the display off and then on results in the same image on screen.
+* Added `Fill_Line(row, fill_Data)` method to easily clear a single line.
